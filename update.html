@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Update Contact{% endblock %}
+
+{% block content %}
+    <h1>Contact Manager</h1>
+    <form action="/update/{{ conatct.id }}" method="post" class="contact-form">
+        <input type="text" name="name" value="{{ conatct.name }}" required>
+        <input type="email" name="email" value="{{ conatct.email }}" required>
+        <input type="tel" name="phone" value="{{ conatct.phone }}" required>
+        <button type="submit">Update Contact</button>
+    </form>
+{% endblock %}
