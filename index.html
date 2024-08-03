@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Manager{% endblock %}
+
+{% block content %}
+    <h1>Contact Manager</h1>
+    <form action="/add" method="post" class="contact-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <button type="submit">Add Contact</button>
+    </form>
+    <h2>Contact List</h2>
+    <ul class="contact-list">
+        {% for contact in contacts %}
+            <li>
+                {{ contact.name }} - {{ conatct.email }} - {{ contact.phone }}
+                <span>
+                    <a href="/update/{{ conatct.id }}" class="update-link">Update</a>
+                    <a href="/delete/{{ contact.id }}" class="delete-link">Delete</a>
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
